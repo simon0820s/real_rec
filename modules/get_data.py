@@ -13,7 +13,6 @@ def run(train):
 
     REAL_PATH="./data/real"#defieniendo path de las imagenes reales
     FAKE1_PATH="./data/fake_1"#definiendo path de las imganes falsas
-    FAKE2_PATH="./data/fake_2"
 
     logging.info("cargando y preparando imagenes reales")
 
@@ -21,11 +20,10 @@ def run(train):
 
     logging.info("cargando y preparando imagenes falsas")
     
-    x_f2,y_f2=get(FAKE1_PATH)
-    x_f1,y_f1=get(FAKE2_PATH)
+    x_f1,y_f1=get(FAKE1_PATH)
 
-    x=x_f1+x_r+x_f2
-    y=y_f1+y_r+y_f2
+    x=x_f1+x_r
+    y=y_f1+y_r
 
     logging.info("seleccionando datos correspondientes")
 

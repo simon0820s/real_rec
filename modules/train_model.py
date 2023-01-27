@@ -59,7 +59,7 @@ def train(model,x_train,y_train,x_val,y_val):
         batch_size=32, #tamaño de lotes
         epochs=5, #definiendo epocas
         callbacks=[early],
-        validation_data=(x_val,y_val)), #iteraciones
+        validation_data=(x_val,y_val)) #iteraciones
 
     model.save("./models/trained_model.h5")
 

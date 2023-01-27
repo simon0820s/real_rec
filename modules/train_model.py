@@ -52,11 +52,14 @@ def train(model,x_train,y_train,x_val,y_val):
 
     logging.info("[INFO] comenzando entrenamiento")
 
+    early=tf.keras.callbacks.EarlyStopping(monitor='accuracy',patience=3)
+
     binnacle=model.fit( #entrenamiento del modelo
         x_train,y_train, #datos de entrenamiento con el generador
         batch_size=32, #tamaño de lotes
         epochs=5, #definiendo epocas
-        validation_data=(x_val,y_val)) #iteraciones
+        callbacks=[early],
+        validation_data=(x_val,y_val)), #iteraciones
 
     model.save("./models/trained_model.h5")
 

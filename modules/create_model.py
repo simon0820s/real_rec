@@ -16,13 +16,16 @@ def create():
     model=tf.keras.Sequential([
 
         #crear capas convolucionales
-        tf.keras.layers.Conv2D(16,(3,3),activation='relu',kernel_regularizer=tf.keras.regularizers.l2(1e-4),input_shape=(150,100,3)),
+        tf.keras.layers.Conv2D(16,(3,3),activation='relu',input_shape=(150,100,1)),
         tf.keras.layers.MaxPool2D(2,2),#tamaño de la matriz
+        tf.keras.layers.Conv2D(16,(3,3),activation='relu'),
+        tf.keras.layers.MaxPool2D(2,2),#tamaño de la matriz
+
         tf.keras.layers.BatchNormalization(), #normalizacion de los datos de 0-1
 
         tf.keras.layers.Dropout(0.3), #dropout para conbatir el sobreentrenamiento
 
-        tf.keras.layers.Conv2D(32,(3,3),activation='relu',kernel_regularizer=tf.keras.regularizers.l2(1e-4)),
+        tf.keras.layers.Conv2D(32,(3,3),activation='relu'),
 
         #capa flatten para aplastar a 1D
         tf.keras.layers.Flatten(),
@@ -33,6 +36,7 @@ def create():
         #capa de salida
         tf.keras.layers.Dense(units=1,activation='sigmoid')
     ])  
+    
     model.summary()
     logging.info("modelo creado")
 

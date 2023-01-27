@@ -14,7 +14,7 @@ def run():
 
     score=model.evaluate(x_test,y_test)#guardando el puntaje del set de validacion
     print('Precisión en el set de validación: {:.1f}%'.format(100*score[1])) #print de el rendimiento en la funcion de perdida en porcentaje
-    print(f"score: {score}") #puntaje de la funcion de perdida en consola
+    print(f"score: {score}") #score en consola
     
     logging.info("[INFO] modelo testeado")
     

@@ -55,7 +55,7 @@ def train(model,x_train,y_train,x_val,y_val):
     binnacle=model.fit( #entrenamiento del modelo
         x_train,y_train, #datos de entrenamiento con el generador
         batch_size=32, #tamaño de lotes
-        epochs=20, #definiendo epocas
+        epochs=5, #definiendo epocas
         validation_data=(x_val,y_val)) #iteraciones
 
     model.save("./models/trained_model.h5")

@@ -79,7 +79,7 @@ def get(path):
 
         img=cv2.imread(img_paths[i]) #seleccionar la imagen
         img=cv2.resize(img,(100,150))
-
+        img=img[:,:,0]
         imgs.append(img)
         labels.append(label)
 

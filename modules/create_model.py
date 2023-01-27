@@ -20,7 +20,7 @@ def create():
         tf.keras.layers.MaxPool2D(2,2),#tamaño de la matriz
         tf.keras.layers.BatchNormalization(), #normalizacion de los datos de 0-1
 
-        tf.keras.layers.Dropout(0.25), #dropout para conbatir el sobreentrenamiento
+        tf.keras.layers.Dropout(0.3), #dropout para conbatir el sobreentrenamiento
 
         tf.keras.layers.Conv2D(32,(3,3),activation='relu',kernel_regularizer=tf.keras.regularizers.l2(1e-4)),
 

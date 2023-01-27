@@ -52,16 +52,8 @@ def train(model,x_train,y_train,x_val,y_val):
 
     logging.info("[INFO] comenzando entrenamiento")
 
-    generator=tf.keras.preprocessing.image.ImageDataGenerator(
-        zoom_range=0.3,
-        brightness_range=(0.5,1.5),
-        height_shift_range=(0.5),
-        width_shift_range=(0.5),
-        rotation_range=(0.4)
-    )
-
     binnacle=model.fit( #entrenamiento del modelo
-        generator(x_train,y_train), #datos de entrenamiento con el generador
+        x_train,y_train, #datos de entrenamiento con el generador
         batch_size=64, #tamaño de lotes
         epochs=20, #definiendo epocas
         steps_per_epoch=(x_train.shape[0]//64), #defieniendo pasos por epoca
